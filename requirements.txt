@@ -1,0 +1,15 @@
+# Python dependencies for the NCDIA Risk Predictor (Streamlit app)
+#
+# IMPORTANT: replace the rdkit version below with the SAME version you used
+# to compute the descriptors / fingerprints in your training .xlsx files.
+# Check it in your training environment with:
+#     python -c "import rdkit; print(rdkit.__version__)"
+
+streamlit
+rdkit==REPLACE_WITH_YOUR_TRAINING_RDKIT_VERSION
+scikit-learn==1.5.2
+imbalanced-learn==0.12.3
+numpy==1.26.4
+pandas
+scipy
+joblib
