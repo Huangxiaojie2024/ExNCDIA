@@ -1,7 +1,8 @@
-numpy==1.23.5
-pandas==2.2.3
-scikit-learn==1.5.1
-joblib==1.4.2
-rdkit
 streamlit
-imblearn
+rdkit-pypi==2022.9.5
+scikit-learn==1.5.2
+imbalanced-learn==0.12.3
+numpy==1.26.4
+pandas==2.2.3
+scipy
+joblib==1.4.2
