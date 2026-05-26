@@ -1,5 +1,5 @@
 streamlit
-rdkit-pypi==2022.9.5
+rdkit==2022.9.5
 scikit-learn==1.5.2
 imbalanced-learn==0.12.3
 numpy==1.26.4
