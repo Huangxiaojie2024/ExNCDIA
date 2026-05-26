@@ -3,5 +3,5 @@ pandas==2.2.3
 scikit-learn==1.5.1
 joblib==1.4.2
 rdkit==2022.9.5
-mordred==1.2.0
 streamlit
+imblearn
