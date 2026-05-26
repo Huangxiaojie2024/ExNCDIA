@@ -1,8 +1,8 @@
-streamlit
-rdkit
+streamlit==1.50.0
+rdkit-pypi==2022.9.5
 scikit-learn==1.5.2
 imbalanced-learn==0.12.3
 numpy==1.26.4
 pandas==2.2.3
-scipy
+scipy==1.11.2
 joblib==1.4.2
