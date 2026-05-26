@@ -19,8 +19,8 @@ from rdkit import Chem
 
 from featurizers import standardize_mol, make_rdkit_calculator
 from predictor import build_features, predict_from_Xq
-from explainer import (build_explainer, shap_for_molecule, global_shap_importance,
-                       waterfall_figure, top_feature_table, global_bar_figure)
+from explainer import (build_explainer, shap_for_molecule,
+                       waterfall_figure, top_feature_table)
 
 # Molecule drawing is optional (needs system X11 libs - see packages.txt).
 try:
@@ -98,10 +98,7 @@ def load_resources():
     rcalc = make_rdkit_calculator(rb["descriptor_85"])
     rexpl = build_explainer(rb)
     mexpl = build_explainer(mb)
-    rglob = global_shap_importance(rb, rexpl)
-    mglob = global_shap_importance(mb, mexpl)
-    return dict(rb=rb, mb=mb, rcalc=rcalc, rexpl=rexpl, mexpl=mexpl,
-                rglob=rglob, mglob=mglob)
+    return dict(rb=rb, mb=mb, rcalc=rcalc, rexpl=rexpl, mexpl=mexpl)
 
 
 R = load_resources()
@@ -218,29 +215,20 @@ with tab_single:
         which = st.radio("Explain with", ["Descriptor Model (RDKit)", "Fingerprint Model (MACCS)"],
                          horizontal=True, label_visibility="collapsed")
         if which.startswith("Descriptor"):
-            expl, glob, sub = R["rexpl"], R["rglob"], p["rdkit"]
+            expl, sub = R["rexpl"], p["rdkit"]
         else:
-            expl, glob, sub = R["mexpl"], R["mglob"], p["maccs"]
+            expl, sub = R["mexpl"], p["maccs"]
 
         shap_vals, base = shap_for_molecule(expl, sub["Xq"])
         fnames = list(sub["raw"].columns)
         fvals = sub["raw"].values[0]
 
-        wcol, gcol = st.columns([1.45, 1.0])
-        with wcol:
-            st.markdown("**This molecule &mdash; top-5 driving features**")
-            fig = waterfall_figure(shap_vals, base, fnames, fvals, max_display=6)
-            st.pyplot(fig)
-            plt.close(fig)
-            st.caption("Red bars push the predicted probability up (toward NCDIA-positive), "
-                       "blue bars push it down. Ranking is specific to THIS compound.")
-        with gcol:
-            st.markdown("**Model-wide top-5 (for comparison)**")
-            gfig = global_bar_figure(glob, fnames, k=5)
-            st.pyplot(gfig)
-            plt.close(gfig)
-            st.caption("Mean |SHAP| across the training set \u2014 the model's "
-                       "globally most influential features.")
+        st.markdown("**This molecule &mdash; top-5 driving features**")
+        fig = waterfall_figure(shap_vals, base, fnames, fvals, max_display=6)
+        st.pyplot(fig)
+        plt.close(fig)
+        st.caption("Red bars push the predicted probability up (toward NCDIA-positive), "
+                   "blue bars push it down. Ranking is specific to THIS compound.")
 
         st.dataframe(pd.DataFrame(top_feature_table(shap_vals, fnames, fvals, k=5)),
                      hide_index=True, use_container_width=True)
@@ -355,7 +343,7 @@ that specific compound's outcome.
 
 ##### Citation & disclaimer
 
-Huang X, Jiang S. *ExNCDIA: Explainable prediction and mechanistic insights into
+Huang X. *ExNCDIA: Explainable prediction and mechanistic insights into
 non-chemotherapy drug-induced agranulocytosis through ensemble machine learning
 approaches.* Department of Pharmacy, Jieyang People's Hospital.
 
