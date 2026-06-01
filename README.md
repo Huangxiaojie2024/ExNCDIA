@@ -22,10 +22,13 @@ Two balanced random forest models performed best and are deployed in the web pre
 
 ## Key results
 
-| Model | Representation | Feature set | Test AUC | Test MCC |
-| --- | --- | --- | --- | --- |
-| **RDKit_GA_BRF** | RDKit descriptors | genetic algorithm (GA) | 0.850 | 0.591 |
-| **MACCS_FP_BRF** | MACCS keys | preprocessing only (FP) | 0.847 | 0.518 |
+| Representation | Evaluation | AUC | ACC | SEN | SPE | MCC |
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| **RDKit (GA, 85)** | 10-fold CV | 0.834 | 0.759 | 0.749 | 0.767 | 0.515 |
+|                    | Internal test | 0.850 | 0.797 | 0.813 | 0.785 | 0.591 |
+| **MACCS (FP, 131)** | 10-fold CV | 0.821 | 0.754 | 0.752 | 0.756 | 0.503 |
+|                     | Internal test | 0.847 | 0.764 | 0.747 | 0.776 | 0.518 |
+
 
 Both models show well-balanced sensitivity and specificity and complete applicability-domain coverage of the test set.
 
