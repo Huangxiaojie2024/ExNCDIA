@@ -114,7 +114,7 @@ If you use this code, the models, or the dataset, please cite:
 
 ## Funding
 
-This work was supported by the Medical Science and Technology Research Foundation of Guangdong Province (Grant No. B2025615).
+This work was supported by the Medical Science and Technology Research Foundation of Guangdong Province (Grant No. A2024072).
 
 ## Contact
 
