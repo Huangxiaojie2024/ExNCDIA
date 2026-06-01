@@ -8,7 +8,7 @@ ExNCDIA is an explainable, imbalance-aware ensemble machine-learning framework f
 
 **Live predictor:** https://exncdia-predictor.streamlit.app/
 
-![Figure 1. Overview of the ExNCDIA framework for explainable prediction of NCDIA.](NCDIA%20Figure%201.jpg)
+![Figure 1. Overview of the ExNCDIA framework for explainable prediction of NCDIA.](ExNCDIA Figure.jpg)
 
 *Figure 1. Overview of the ExNCDIA framework for explainable prediction of NCDIA.*
 
