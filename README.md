@@ -110,11 +110,11 @@ The curated collection comprises **906 drugs** with confirmed NCDIA outcomes (37
 
 If you use this code, the models, or the dataset, please cite:
 
-> Huang X, Jiang S. *ExNCDIA: Explainable prediction and mechanistic insights into non-chemotherapy drug-induced agranulocytosis through ensemble machine learning approaches.* (Manuscript; citation details to be updated upon publication.)
+> Huang X, Jiang S. Liu P.*ExNCDIA: Explainable prediction and mechanistic insights into non-chemotherapy drug-induced agranulocytosis through ensemble machine learning approaches.* (Manuscript; citation details to be updated upon publication.)
 
 ## Funding
 
-This work was supported by the Medical Science and Technology Research Foundation of Guangdong Province (Grant No. A2024072).
+This work was supported by the Medical Science and Technology Research Foundation of Guangdong Province (Grant No. A2024082).
 
 ## Contact
 
