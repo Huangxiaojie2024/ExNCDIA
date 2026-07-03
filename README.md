@@ -6,7 +6,6 @@
 
 ExNCDIA is an explainable, imbalance-aware ensemble machine-learning framework for predicting NCDIA toxicity directly from chemical structure and for interpreting the molecular features that drive the risk. This repository contains the trained models, the reproducibility notebooks, the curated datasets, and the source code of the freely accessible web predictor.
 
-**Live predictor:** https://exncdia-predictor.streamlit.app/
 
 ![Figure 1. Overview of the ExNCDIA framework for explainable prediction of NCDIA.](ExNCDIA%20Figure.jpg)
 
@@ -18,7 +17,7 @@ ExNCDIA is an explainable, imbalance-aware ensemble machine-learning framework f
 
 Non-chemotherapy drug-induced agranulocytosis is a rare but potentially fatal adverse reaction whose idiosyncratic, multifactorial nature makes prospective risk assessment difficult. ExNCDIA was built on a curated dataset of 906 drugs (371 NCDIA-toxic, 535 non-toxic) assembled from literature-derived compounds and SIDER agranulocytosis annotations. Three open-source molecular representations (RDKit and Mordred descriptors, and MACCS fingerprints) were paired with five feature-selection strategies, and five imbalance-aware ensemble classifiers were trained, tuned by Matthews correlation coefficient (MCC), and validated by 10-fold cross-validation and a held-out test set. Model behavior was characterized by applicability-domain analysis and by global and local interpretation with SHapley Additive exPlanations (SHAP).
 
-Two balanced random forest models performed best and are deployed in the web predictor: the descriptor-based **RDKit_GA_BRF** and the fingerprint-based **MACCS_FP_BRF**. SHAP analyses of these two non-overlapping representations converged on the same chemically coherent risk determinants — sulfur-containing pharmacophores, multiple aromatic rings, and nitrogen-bearing/arylamine cores — consistent with documented cytochrome P450- and myeloperoxidase-mediated bioactivation routes of neutrophil injury.
+Two balanced random forest models performed best and are deployed in the web predictor: the descriptor-based **RDKit_GA_BRF** and the fingerprint-based **MACCS_FP_BRF**. SHAP analyses of these two non-overlapping representations converged on the same chemically coherent risk determinants — sulfur-containing pharmacophores, multiple aromatic rings, and nitrogen-bearing/arylamine cores.
 
 ## Key results
 
