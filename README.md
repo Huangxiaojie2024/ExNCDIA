@@ -1,6 +1,6 @@
 # ExNCDIA
 
-**Explainable prediction and mechanistic insights into non-chemotherapy drug-induced agranulocytosis (NCDIA) through ensemble machine learning.**
+**ExNCDIA: Decoding the Structural Determinants of Non-Chemotherapy Drug-Induced Agranulocytosis with Explainable Machine Learning**
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://exncdia-predictor.streamlit.app/)
 
@@ -95,7 +95,7 @@ The app loads `NCDIA_RDKit_BRF_model.pkl` / `NCDIA_MACCS_BRF_model.pkl` and expo
 
 ## Dataset
 
-The curated collection comprises **906 drugs** with confirmed NCDIA outcomes (371 toxic / 535 non-toxic), partitioned by an 8:2 stratified split (`random_state = 3`) into a **training set of 724** (296 toxic / 428 non-toxic) and a **held-out test set of 182** (75 toxic / 107 non-toxic).
+The curated collection comprises **906 drugs** with confirmed NCDIA outcomes (371 toxic / 535 non-toxic), partitioned by an 8:2 stratified split into a **training set of 724** (296 toxic / 428 non-toxic) and a **held-out test set of 182** (75 toxic / 107 non-toxic).
 
 ## Method summary
 
@@ -110,7 +110,7 @@ The curated collection comprises **906 drugs** with confirmed NCDIA outcomes (37
 
 If you use this code, the models, or the dataset, please cite:
 
-> Huang X, Jiang S. Liu P.*ExNCDIA: Explainable prediction and mechanistic insights into non-chemotherapy drug-induced agranulocytosis through ensemble machine learning approaches.* (Manuscript; citation details to be updated upon publication.)
+> Huang X, Jiang S. Liu P.*ExNCDIA: Decoding the Structural Determinants of Non-Chemotherapy Drug-Induced Agranulocytosis with Explainable Machine Learning.* (Manuscript; citation details to be updated upon publication.)
 
 ## Funding
 
