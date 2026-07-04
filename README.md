@@ -1,6 +1,6 @@
 # ExNCDIA
 
-**ExNCDIA: Decoding the Structural Determinants of Non-Chemotherapy Drug-Induced Agranulocytosis with Explainable Machine Learning**
+**ExNCDIA: An Explainable Ensemble Learning Framework for Predicting Non-Chemotherapy Drug-Induced Agranulocytosis with Mechanistic Interpretations**
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://exncdia-predictor.streamlit.app/)
 
@@ -109,7 +109,7 @@ The curated collection comprises **906 drugs** with confirmed NCDIA outcomes (37
 
 If you use this code, the models, or the dataset, please cite:
 
-> Huang X, Jiang S. Liu P.*ExNCDIA: Decoding the Structural Determinants of Non-Chemotherapy Drug-Induced Agranulocytosis with Explainable Machine Learning.* (Manuscript; citation details to be updated upon publication.)
+> Huang X, Jiang S. Liu P.*ExNCDIA: An Explainable Ensemble Learning Framework for Predicting Non-Chemotherapy Drug-Induced Agranulocytosis with Mechanistic Interpretations.* (Manuscript; citation details to be updated upon publication.)
 
 ## Funding
 
