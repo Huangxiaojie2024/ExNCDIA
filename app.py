@@ -1,5 +1,3 @@
-"""
-app.py
 ------
 ExNCDIA - Explainable predictor of non-chemotherapy drug-induced
 agranulocytosis (NCDIA).
@@ -113,15 +111,16 @@ def card_html(name, subtitle, res):
     cls = "high" if high else "low"
     ad_txt = "Inside applicability domain" if res["in_ad"] else "Outside applicability domain"
     ad_cls = "in" if res["in_ad"] else "out"
-    pct = res["proba"] * 100
+    score = res["proba"]
+    pct = score * 100
     return f"""
     <div class="card">
       <div class="card-title">{name}</div>
       <div class="card-sub">{subtitle}</div>
       <span class="badge {cls}">{risk_txt}</span>
       <div class="prob-row">
-        <span class="prob-label">Probability of NCDIA-positive</span>
-        <span class="prob-val">{pct:.1f}%</span>
+        <span class="prob-label">NCDIA-positive model score</span>
+        <span class="prob-val">{score:.3f}</span>
       </div>
       <div class="bar"><div class="bar-fill {cls}" style="width:{pct:.1f}%"></div></div>
       <span class="chip {ad_cls}">{ad_txt} &nbsp;(d = {res['ad_norm']:.2f})</span>
@@ -227,7 +226,7 @@ with tab_single:
         fig = waterfall_figure(shap_vals, base, fnames, fvals, max_display=6)
         st.pyplot(fig)
         plt.close(fig)
-        st.caption("Red bars push the predicted probability up (toward NCDIA-positive), "
+        st.caption("Red bars push the model score up (toward NCDIA-positive), "
                    "blue bars push it down. Ranking is specific to THIS compound.")
 
         st.dataframe(pd.DataFrame(top_feature_table(shap_vals, fnames, fvals, k=5)),
@@ -279,10 +278,10 @@ with tab_batch:
                             "Standardized": Chem.MolToSmiles(mol),
                             "Status": "OK",
                             "RDKit_pred": "Positive" if rr["label"] else "Negative",
-                            "RDKit_prob": round(rr["proba"], 3),
+                            "RDKit_score": round(rr["proba"], 3),
                             "RDKit_AD": "In" if rr["in_ad"] else "Out",
                             "MACCS_pred": "Positive" if rm["label"] else "Negative",
-                            "MACCS_prob": round(rm["proba"], 3),
+                            "MACCS_score": round(rm["proba"], 3),
                             "MACCS_AD": "In" if rm["in_ad"] else "Out",
                             "Consensus": ("Positive" if (agree and rr["label"]) else
                                           "Negative" if agree else "Disagree"),
@@ -332,8 +331,9 @@ that specific compound's outcome.
 
 ##### Reading the output
 
-- **Risk badge & probability** &mdash; the model's class call and the estimated
-  probability of being NCDIA-positive.
+- **Risk badge & model score** &mdash; the model's class call and the corresponding
+  NCDIA-positive model score (0 to 1). The score is not a calibrated probability
+  of developing NCDIA in real-world populations.
 - **Applicability domain (AD)** &mdash; whether the compound is structurally similar
   enough to the training data for the prediction to be reliable. A result *outside*
   the AD should be interpreted with caution.
@@ -343,9 +343,7 @@ that specific compound's outcome.
 
 ##### Citation & disclaimer
 
-Huang X. *ExNCDIA: Explainable prediction and mechanistic insights into
-non-chemotherapy drug-induced agranulocytosis through ensemble machine learning
-approaches.* Department of Pharmacy, Jieyang People's Hospital.
+Huang X. *ExNCDIA: An Explainable Ensemble Learning Framework for Predicting Non-Chemotherapy Drug-Induced Agranulocytosis and Interpreting Structural Associations.* Department of Pharmacy, Jieyang People's Hospital.
 
 ExNCDIA is provided for **research and educational purposes only**. It is not a
 medical device and does not replace experimental toxicity assessment or clinical
