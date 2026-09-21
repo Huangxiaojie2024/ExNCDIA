@@ -1,3 +1,5 @@
+"""
+app.py
 ------
 ExNCDIA - Explainable predictor of non-chemotherapy drug-induced
 agranulocytosis (NCDIA).
@@ -343,7 +345,9 @@ that specific compound's outcome.
 
 ##### Citation & disclaimer
 
-Huang X. *ExNCDIA: An Explainable Ensemble Learning Framework for Predicting Non-Chemotherapy Drug-Induced Agranulocytosis and Interpreting Structural Associations.* Department of Pharmacy, Jieyang People's Hospital.
+Huang X. *ExNCDIA: Explainable prediction and mechanistic insights into
+non-chemotherapy drug-induced agranulocytosis through ensemble machine learning
+approaches.* Department of Pharmacy, Jieyang People's Hospital.
 
 ExNCDIA is provided for **research and educational purposes only**. It is not a
 medical device and does not replace experimental toxicity assessment or clinical
