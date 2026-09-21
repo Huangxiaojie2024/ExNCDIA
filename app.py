@@ -109,7 +109,7 @@ R = load_resources()
 # ----------------------------------------------------------------------
 def card_html(name, subtitle, res):
     high = res["label"] == 1
-    risk_txt = "HIGH RISK" if high else "LOW RISK"
+    risk_txt = "NCDIA-POSITIVE" if high else "NCDIA-NEGATIVE"
     cls = "high" if high else "low"
     ad_txt = "Inside applicability domain" if res["in_ad"] else "Outside applicability domain"
     ad_cls = "in" if res["in_ad"] else "out"
@@ -132,8 +132,8 @@ def card_html(name, subtitle, res):
 
 def consensus_text(rr, rm):
     if rr["label"] == rm["label"]:
-        verdict = "HIGH-RISK" if rr["label"] == 1 else "LOW-RISK"
-        msg = f"Both models agree: <b>{verdict}</b> for NCDIA."
+        verdict = "NCDIA-POSITIVE" if rr["label"] == 1 else "NCDIA-NEGATIVE"
+        msg = f"Both models agree: <b>{verdict}</b> prediction."
     else:
         msg = ("The two models <b>disagree</b>. Give more weight to the model whose "
                "result is inside the applicability domain; if both are inside, treat "
@@ -316,7 +316,7 @@ marrow suppression, NCDIA arises through heterogeneous and idiosyncratic mechani
 &mdash; including immune-mediated neutrophil destruction and direct toxicity toward
 myeloid precursors &mdash; making it difficult to anticipate from chemical structure
 alone. ExNCDIA was built to support **early structural risk assessment** in medicinal
-chemistry and drug-safety workflows.
+chemistry and drug-safety workflows through structure-based prioritization.
 
 ##### How it works
 
@@ -326,18 +326,18 @@ ExNCDIA combines **two independently trained Balanced Random Forest models**:
   capturing physicochemical properties and topology.
 - **Fingerprint Model** &mdash; 131 MACCS structural keys, capturing substructural motifs.
 
-Both were developed on **906 curated compounds** (371 NCDIA-positive, 535 negative),
-split into a training set of 724 and an independent test set of 182. Every prediction
+Both were developed on **906 curated compounds** (371 NCDIA-positive, 535 NCDIA-negative),
+split into a training set of 724 and a held-out test set of 182. Every prediction
 is accompanied by a **SHAP explanation** identifying the molecular features that drive
 that specific compound's outcome.
 
 ##### Reading the output
 
-- **Risk badge & model score** &mdash; the model's class call and the corresponding
+- **Predicted class & model score** &mdash; the model's class call and the corresponding
   NCDIA-positive model score (0 to 1). The score is not a calibrated probability
   of developing NCDIA in real-world populations.
 - **Applicability domain (AD)** &mdash; whether the compound is structurally similar
-  enough to the training data for the prediction to be reliable. A result *outside*
+  enough to the training data to support interpretation of the prediction. A result *outside*
   the AD should be interpreted with caution.
 - **SHAP waterfall** &mdash; the features pushing this molecule's prediction up (red)
   or down (blue), ranked for this compound; a model-wide ranking is shown alongside
@@ -345,9 +345,9 @@ that specific compound's outcome.
 
 ##### Citation & disclaimer
 
-Huang X. *ExNCDIA: Explainable prediction and mechanistic insights into
-non-chemotherapy drug-induced agranulocytosis through ensemble machine learning
-approaches.* Department of Pharmacy, Jieyang People's Hospital.
+Huang X. *ExNCDIA: An Explainable Ensemble Learning Framework for Predicting
+Non-Chemotherapy Drug-Induced Agranulocytosis and Interpreting Structural
+Associations.* Department of Pharmacy, Jieyang People's Hospital.
 
 ExNCDIA is provided for **research and educational purposes only**. It is not a
 medical device and does not replace experimental toxicity assessment or clinical
