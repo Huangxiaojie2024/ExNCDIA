@@ -6,7 +6,7 @@
 
 ExNCDIA is an explainable, imbalance-aware ensemble machine-learning framework for predicting non-chemotherapy drug-induced agranulocytosis (NCDIA) liability directly from chemical structure and for interpreting structural features associated with model predictions. This repository contains the trained final models, reproducibility notebooks, curated datasets, and source code for the freely accessible web predictor.
 
-![Figure 1. Overview of the ExNCDIA framework for explainable prediction of NCDIA.](ExNCDIA%20Figure.jpg)
+![Figure 1. Overview of the ExNCDIA framework for explainable prediction of NCDIA.](Figure%201.jpg)
 
 *Figure 1. Overview of the ExNCDIA framework for explainable prediction of NCDIA.*
 
